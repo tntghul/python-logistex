@@ -1,0 +1,54 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+
+    <div class="container">
+        
+
+        <!-- Flash message (if any) -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-success mt-4">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+
+
+        <table class="table table-striped mt-5">
+            <h1 class="text-center pt-5 mt-5">Delivery Partner Dashboard</h1>
+            <thead>
+                <tr>
+                    <th>Sr.no</th>
+                    <th>BID</th>
+
+                    <th>Payment ID</th>
+
+                    <th>Order ID</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in record %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ r[1] }}</td>
+
+                    <td>{{ r[2] }}</td>
+
+                    <td>{{ r[3]}}</td>
+                    <td>{{ r[4]}}</td>
+
+                    <td>{{ r[5] }}</td>
+                    {% endfor %}
+                    
+            </tbody>
+        </table>
+        <center><a href="{{ url_for('adminindex') }}" class="btn btn-primary mt-3 mb-5">BACK TO DASHBOARD</a>
+        </center>
+        
+    </div>
+
+    
+{% endblock %}

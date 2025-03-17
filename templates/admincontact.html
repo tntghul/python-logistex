@@ -1,0 +1,41 @@
+{% extends "admin_layout.html"%}
+{% block content %}
+
+<div class="container mt-3">
+    <h2 class="text-center p-5 mt-5 display-5">Contact</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sr.no</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Subject</th>
+                <th>Comment</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in record %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[2] }}</td>
+                <td>{{ r[3] }}</td>
+                <td>{{ r[4] }}</td>
+                <td>{{ r[5] }}</td>
+                <td>
+                    <a href="{{ url_for('delete_contact', id=r[0]) }}"><i class="bi bi-trash-fill"></i></a>
+                    <a href=""><i class="bi bi-pencil-square"></i></a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "main_layout.html" %}
+{% block content %}
+
+    <!-- main-area -->
+    <main class="fix">
+
+        <!-- breadcrumb-area -->
+        <section class="breadcrumb__area breadcrumb__bg" data-background="assets/img/bg/breadcrumb_bg.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb__content">
+                            <h1 class="title">Contact Us</h1>
+                            <nav class="breadcrumb">
+                                <span property="itemListElement" typeof="ListItem">
+                                    <a href="index.html">Home</a>
+                                </span>
+                                <span class="breadcrumb-separator"><i class="flaticon-right-arrow"></i></span>
+                                <span property="itemListElement" typeof="ListItem">Contact</span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- breadcrumb-area-end -->
+
+        <!-- contact-area -->
+        <section class="contact__area section-py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contact-map contact-map-two">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48409.69813174607!2d-74.05163325136718!3d40.68264649999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1684309529719!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="contact__info-item">
+                            <h4 class="title">Office in New York</h4>
+                            <p class="info-one">58 Street Commercial Road Fratton, <br> Australia</p>
+                            <h4 class="title"><a href="tel:0123456789">+(09) 3456 7890</a></h4>
+                            <p class="info-two">Monday – Friday: 9:00-20:00 <br> Saturday: 11:00 – 15:00</p>
+                            <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="contact__info-item">
+                            <h4 class="title">Office in Canada</h4>
+                            <p class="info-one">16 Rue Auguste Cain, 75014 Paris, <br> France</p>
+                            <h4 class="title"><a href="tel:0123456789">+(09) 1256 7845</a></h4>
+                            <p class="info-two">Monday – Friday: 9:00-20:00 <br> Saturday: 11:00 – 15:00</p>
+                            <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="contact__info-item">
+                            <h4 class="title">Office in Paris</h4>
+                            <p class="info-one">925 4th Ave #2300, Seattle, WA <br> United States of America</p>
+                            <h4 class="title"><a href="tel:0123456789">+(09) 3446 7892</a></h4>
+                            <p class="info-two">Monday – Friday: 9:00-20:00 <br> Saturday: 11:00 – 15:00</p>
+                            <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contact__form-wrap">
+                            <h2 class="title">Send Us Message</h2>
+                            <form action="/contact" class="contact__form" method="POST" id="contact-form">
+                                <div class="row gutter-20">
+                                    <div class="col-lg-4">
+                                        <div class="form-grp">
+                                            <input type="text" name="cname" placeholder="name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-grp">
+                                            <input type="email" name="cemaill" placeholder="E-mail">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-grp">
+                                            <input type="tel" name="cphone" placeholder="Phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-grp">
+                                    <input type="text" name="csubject" placeholder="Subject">
+                                </div>
+                                <div class="form-grp">
+                                    <textarea name="comment" placeholder="Comments"></textarea>
+                                </div>
+                                <button class="btn red-btn">Send Me Message</button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contact-area-end -->
+
+    </main>
+    <!-- main-area-end -->
+
+   {% endblock %}

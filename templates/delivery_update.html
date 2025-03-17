@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Progress Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .tracker-container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .progress-step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #d1d5db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .progress-step.completed {
+            background-color: #6d28d9;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            margin-top: 8px;
+            color: #374151;
+        }
+
+        .progress-label.completed {
+            color: #6d28d9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tracker-container">
+        <div class="mb-4">
+            <h5>ORDER <a href="#" class="text-primary">{{record["track_no"]}}</a></h5>
+            <p>Expected Arrival: 01/06/20</p>
+            <p>Grasshoppers <a href="#" class="text-primary">V534HB</a></p>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between">
+            {% if record['currentStep'] >= 0 %}
+            <div class="text-center">
+                <div class="progress-step completed">1</div>
+                <div class="progress-label completed">Order Processed</div>
+            </div>
+            {% endif %}
+            {% if record['currentStep'] >= 1 %}
+            <div class="text-center">
+                <div class="progress-step completed">2</div>
+                <div class="progress-label completed">Order Designing</div>
+            </div>
+            {% endif %}
+            {% if record['currentStep'] >= 2 %}
+            <div class="text-center">
+                <div class="progress-step completed">3</div>
+                <div class="progress-label completed">Order Shipped</div>
+            </div>
+            {% endif %}
+            {% if record['currentStep'] >= 3 %}
+            <div class="text-center">
+                <div class="progress-step completed">4</div>
+                <div class="progress-label completed">Order En Route</div>
+            </div>
+            {% endif %}
+            {% if record['currentStep'] >= 4 %}
+            <div class="text-center">
+                <div class="progress-step completed">5</div>
+                <div class="progress-label completed">Order Delivered</div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="progress mt-4" style="height: 4px;">
+            <div class="progress-bar bg-primary" role="progressbar"
+                aria-valuenow="{{ (record['currentStep'] + 1) / 5 * 100 }}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.progress-step');
+            const labels = document.querySelectorAll('.progress-label');
+            let currentStep = {{ record['currentStep'] |default (0) | safe
+        }};
+
+        steps.forEach((step, index) => {
+            if (index <= currentStep) {
+                step.classList.add('completed');
+            } else {
+                step.classList.remove('completed');
+            }
+        });
+
+        labels.forEach((label, index) => {
+            if (index <= currentStep) {
+                label.classList.add('completed');
+            } else {
+                label.classList.remove('completed');
+            }
+        });
+
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = `${(currentStep + 1) / steps.length * 100}%`;
+        });
+    </script>
+
+    <!-- Backend Integration Example -->
+    <script>
+        // Example of fetching the current order step from a backend
+        async function fetchOrderStatus() {
+            try {
+                const response = await fetch('/api/order-status/${track_no}'); // Replace with your backend API endpoint
+                const data = await response.json();
+
+                const steps = document.querySelectorAll('.progress-step');
+                const labels = document.querySelectorAll('.progress-label');
+
+                const currentStep = data.currentStep; // Assume backend returns the current step index (0-based)
+
+                steps.forEach((step, index) => {
+                    if (index <= currentStep) {
+                        step.classList.add('completed');
+                    } else {
+                        step.classList.remove('completed');
+                    }
+                });
+
+                labels.forEach((label, index) => {
+                    if (index <= currentStep) {
+                        label.classList.add('completed');
+                    } else {
+                        label.classList.remove('completed');
+                    }
+                });
+
+                const progressBar = document.querySelector('.progress-bar');
+                progressBar.style.width = `${(currentStep + 1) / steps.length * 100}%`;
+            } catch (error) {
+                console.error('Error fetching order status:', error);
+            }
+        }
+        // Automatically refresh the tracker every 30 seconds
+        setInterval(fetchOrderStatus, 30000);
+
+        // Call fetchOrderStatus to initialize the progress tracker with backend data
+        fetchOrderStatus();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+
+    <div class="container">
+        
+
+        <!-- Flash message (if any) -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-success mt-4">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+
+
+        <table class="table table-striped mt-5">
+            <h1 class="text-center pt-5 mt-5">Delivery DATA</h1>
+            <thead>
+                <tr>
+                    <th>Sr.no</th>
+                    <th>Name</th>
+
+                    <th>Phone</th>
+
+                    <th>Origin Place</th>
+                    <th>Destination Place</th>
+
+                    <th>Price</th>
+                    <th>Trackin No.</th>
+                    <th>Bid</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in record %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ r[1] }}</td>
+
+                    <td>{{ r[9] }}</td>
+
+                    <td>{{ r[4]}}</td>
+                    <td>{{ r[6]}}</td>
+
+                    <td>{{ r[10] }}</td>
+                    <td>{{ r[2] }}</td>
+                    <td>{{ r[8] }}</td>
+                   
+
+
+                    {% endfor %}
+            </tbody>
+        </table>
+        <center><a href="{{ url_for('adminindex') }}" class="btn btn-primary mt-3 mb-5">BACK TO DASHBOARD</a>
+        </center>
+    </div>
+
+    <script>
+        function handlePickup(button) {
+
+            // Get the 'bid' from the button's data-bid attribute
+            var bid = button.getAttribute('data-bid');
+            console.log('Bid:' + bid);  // Check if the bid is printed in the console
+            // Disable the Pickup button
+            button.disabled = true;
+            button.classList.add("btn-secondary"); // Optional: Change the button's appearance
+            button.classList.remove("btn-warning");
+            button.innerText = "Picked Up";
+
+            // Disable the Drop button for the same row
+            const row = button.closest('tr');
+            const dropButton = row.querySelector('.drop-btn');
+            dropButton.disabled = true;
+        }
+
+        function handleDrop(button) {
+            // Disable the Drop button
+            button.disabled = true;
+            button.classList.add("btn-secondary");
+            button.classList.remove("btn-secondary");
+            button.innerText = "Dropped";
+
+            // Disable the Pickup button for the same row
+            const row = button.closest('tr');
+            const pickupButton = row.querySelector('.pickup-btn');
+            pickupButton.disabled = true;
+        }
+    </script>
+{% endblock %}

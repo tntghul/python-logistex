@@ -1,0 +1,26 @@
+{% extends "main_layout.html" %}
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row">
+        <h3 class="display-4 text-center mt-4 pb-5">QUERIERsathi</h3>
+        <div class="col-lg-1"></div>
+        <form action="/delivery_login" method="POST">
+        <div class="col-lg-10 border rounded p-5">
+            <h5 class="text-center fs-4 display-3 mt-3 ">Delivery login</h5>
+            <label class="label-control">ID</label>
+            <input type="text" name="del_email" class="form-control">
+            <label class="label-control">Password</label>
+            <input type="password" name="del_pswd" class="form-control">
+            <label class="form-check-label">
+                <input class="label-form" type="checkbox" name="remember"> Remember me
+            </label>
+            <input type="submit" class="btn mt-3 mb-2 form-control" value="Login">
+            <span class="p-2">New User? <a href="/delivery_login">Signup Here</a></span>
+        </div>
+    </form>
+    </div>
+</div>
+
+{% endblock %}

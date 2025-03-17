@@ -1,0 +1,131 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Delivery Partner Update</title>
+    <style>
+        button:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="p-5 text-center mt-5">Delivery Partner Update Form</h1>
+
+    <div class="container">
+        <div class="row justifu-content-center">
+            
+            <form action="/pickup/{{ record[8] }}" method="POST">
+                
+                <div class="col-lg-8 border rounded p-5 mb-5">
+                    
+                    <label class="label-form">Customer Name:</label>
+                    <input type="text" class="form-control" name="p_name" value="{{ record[1] }}" readonly>
+
+                    <label class="label-form" for="partner_id">Customer Tracking ID:</label>
+                    <input type="text" class="form-control" id="partner_id" value="{{record[2]}}" name="p_id" readonly>
+                    
+                    <label class="label-form">Origin Pincode:</label>
+                    <input type="text" class="form-control" name="origin_pincode" value="{{ record[3] }}" readonly>
+
+                    <label class="label-form" for="partner_id">Origin Place:</label>
+                    <input type="text" class="form-control" id="partner_id" value="{{record[4]}}" name="origin_place" readonly>
+
+                    <label class="label-form">Destination Pincode:</label>
+                    <input type="text" class="form-control" name="destination_pincode" value="{{ record[5] }}" readonly>
+
+                    <label class="label-form" for="partner_id">Destination Name:</label>
+                    <input type="text" class="form-control" id="partner_id" value="{{record[6]}}" name="destination_place" readonly>
+
+                    <label class="label-form" for="status">Delivery Status:</label>
+                    <select class="form-control" id="status" name="status" required>
+                        <option >Select Your status</option>
+                        <option value="Pickup" {% if record[7] == "Pickup" %}selected{% endif %} >Pickup</option>
+                        <option value="Processed" {% if record[7] == "Processed" %}selected{% endif %}>Processed</option>
+                        <option value="Shipped" {% if record[7] == "Shipped" %}selected{% endif %} >Shipped</option>
+                        <option value="Out for delivery" {% if record[7] == "Out for delivery" %}selected{% endif %} >Out for delivery</option>
+                        <option value="Delivered" {% if record[7] == "Delivered" %}selected{% endif %} >Delivered</option>
+                    </select>
+                    <label class="label-form" for="currentStep">Current Step (Delivery):</label>
+                    <select class="form-control" id="currentStep" name="currentStep" required>
+                        <option >Select Your Current step</option>
+                        <option value="0" {% if record[11] == 0 %}selected{% endif %} >1</option>
+                        <option value="1" {% if record[11] == 1 %}selected{% endif %}>2</option>
+                        <option value="2" {% if record[11] == 2 %}selected{% endif %} >3</option>
+                        <option value="3" {% if record[11] == 3 %}selected{% endif %} >4</option>
+                        <option value="4" {% if record[11] == 4 %}selected{% endif %}>5</option>
+                    </select>
+                    <label class="label-form" for="pickup_status">Pickup Status</label>
+                    <select class="form-control" id="pickup_status" name="pickup_status" required>
+                        <option >Select Your Pickup status</option>
+                        <option value="1" {% if record[12] == 1 %}selected{% endif %}>Picked Up</option>
+                        <option value="0" {% if record[12] == 0 %}selected{% endif %}>Not Picked Up</option>
+                        <option value="2" {% if record[12] == 2 %}selected{% endif %}>Drop out</option>
+                    </select>
+
+                     <!-- <label class="label-form" for="timestamp">Timestamp (YYYY-MM-DD HH:MM:SS):</label>
+                    <input class="form-control" type="text" id="timestamp" name="time" required> -->
+
+                    <button class="btn btn-success mt-3 " type="submit">Submit Info</button> 
+                    <a href="/del_dashboard" class="btn btn-primary mt-3">Back to Dashboard</a>
+
+                    <p id="responseMessage"></p>
+                    
+                </div>
+                
+                
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('deliveryPartnerForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = {
+                name: document.getElementById('name').value,
+                partner_id: document.getElementById('partner_id').value,
+                status: document.getElementById('status').value,
+                location: document.getElementById('location').value,
+                timestamp: document.getElementById('timestamp').value
+            };
+
+            // Send the data to the server (Flask backend)
+            fetch('/update_delivery_partner', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('responseMessage').textContent = data.message || data.error;
+                    document.getElementById('responseMessage').classList.remove('error');
+                    if (data.error) {
+                        document.getElementById('responseMessage').classList.add('error');
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('responseMessage').textContent = 'Error: ' + error.message;
+                    document.getElementById('responseMessage').classList.add('error');
+                });
+        });
+    </script>
+
+</body>
+
+</html>

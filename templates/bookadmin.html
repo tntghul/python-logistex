@@ -1,0 +1,57 @@
+{% extends "admin_layout.html"%}
+{% block content %}
+
+<div class="container mt-3">
+    <h2 class="text-center p-5 mt-5 display-5">BOOK SHIPMENT</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sr.no</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Origin Place</th>
+                <th>Destination Place</th>
+                <th>Content</th>
+                <th>Describe</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Trackin No.</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in record %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[2] }}</td>
+                <td>{{ r[3] }}</td>
+                <td>{{ r[4] }}</td>
+                <td>{{ r[5] }}</td>
+                <td>{{ r[11]}}</td>
+                <td>{{ r[12]}}</td>
+                <td>{{ r[6] }}</td>
+                <td>{{ r[7] }}</td>
+                <td>{{ r[8] }}</td>
+                <td>{{ r[9] }}</td>
+                <td>{{ r[10] }}</td>
+                <td>
+                    <a href="{{ url_for('delete_book', bid=r[0]) }}"><i class="bi bi-trash-fill"></i></a>
+                    <a href="{{ url_for('view_book', bid=r[0]) }}"><i class="bi bi-eye "></i></a>
+                    <a href="{{ url_for('book_update', bid=r[0]) }}"><i class="bi bi-pencil-fill"></i></a>
+                </td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+    <center><a href="{{ url_for('adminindex') }}" class="btn btn-primary mt-3 mb-5">BACK TO DASHBOARD</a>
+    </center>
+</div>
+
+
+{% endblock %}

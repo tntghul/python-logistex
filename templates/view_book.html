@@ -1,0 +1,57 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    
+    <div class="row">
+        <h3 class="display-4 p-5 text-center">Personal Data</h3>
+        <div class="col-lg-10 p-5 border rounded ">
+            
+            <form action="/view_book/{{ record[0] }}" method="post" enctype="form-data" class="rounded-borders">
+            
+            <label class="label-form">Name</label>
+            <input type="text" class="form-control" name="bname" value="{{ record[1] }}" readonly>
+
+            <label class="label-form">Email</label>
+            <input type="text" class="form-control" name="bemail" value="{{ record[2] }}" readonly>
+
+            <label class="label-form">Phone</label>
+            <input type="text" class="form-control" name="bphone" value="{{ record[3] }}">
+
+            <label class="label-form">Origin Pincode</label>
+            <input type="text" class="form-control" name="origin" value="{{ record[4] }}">
+
+            <label class="label-form">Destination Pincode</label>
+            <input type="text" class="form-control" name="destination" value="{{ record[5] }}">
+
+            <label class="label-form">Origin Place</label>
+            <input type="text" class="form-control" name="origin_p" value="{{ record[11] }}">
+
+            <label class="label-form">Destination Place</label>
+            <input type="text" class="form-control" name="destination_p" value="{{ record[12] }}">
+
+            <label class="label-form">Content</label>
+            <input type="text" class="form-control" name="content" value="{{ record[6] }}">
+
+            <label class="label-form">Dpackage</label>
+            <input type="text" class="form-control" name="dpackage" value="{{ record[7] }}">
+
+            <label class="label-form">Size</label>
+            <input type="text" class="form-control" name="size" value="{{ record[8] }}" readonly>
+
+            <label class="label-form">Price</label>
+            <input type="text" class="form-control" name="price" value="{{ record[9] }}" readonly>
+
+            <label class="label-form">Tracking Number</label>
+            <input type="text" class="form-control" name="track_no" value="{{ record[10] }}" readonly>
+            
+            <a href="/bookadmin" type="button" class="btn btn-primary mt-3 mb-3 form-control" > Back to Dashboard
+            </a>
+            </form>
+        
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

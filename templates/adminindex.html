@@ -1,0 +1,254 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <!-- Left side columns -->
+            <div class="col-lg-8">
+                <div class="row">
+
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+
+
+                            <div class="card-body">
+                                <h5 class="card-title">BOOK Shipment <span>| Category</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <a href="/bookadmin">
+                                            <span>Book Shipment</span>
+                                        </a>
+
+                                    </div>
+                                    <div class=" ps-3 d-flex align-items-center justify-content-center">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- End Sales Card -->
+
+                    <!-- Revenue Card -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card revenue-card">
+
+
+
+                            <div class="card-body">
+                                <h5 class="card-title">DELIVERY DATA <span>| Category</span> </h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-cart"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <a href="/admindelivery">
+                                            <span>Delivery</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- End Revenue Card -->
+
+                    <!-- Customers Card -->
+                    <div class="col-xxl-4 col-xl-12">
+
+                        <div class="card info-card customers-card">
+
+
+
+                            <div class="card-body">
+                                <h5 class="card-title"> Payment Data
+                                     <span>| Category</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-currency-rupee"></i>
+                                    </div>
+                                    <div class="ps-3">
+
+                                        <a href="/adminpayment">
+                                            <span>Payment</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div><!-- End Customers Card -->
+
+
+
+                    <!-- Recent Sales -->
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Contact <span>| Today</span></h5>
+
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Sr</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Contact</th>
+                                            <th scope="col">Message</th>
+                                        </tr>
+                                        
+                                    </thead>
+                                    <tbody>
+                                        {% for r in record %}
+                                        <tr>
+                                            <td>{{ loop.index }}</td>
+                                            <td>{{ r[1] }}</td>
+                                            <td>{{ r[2] }}</td>
+                                            <td>{{ r[3] }}</td>
+                                            <td>{{ r[4] }}</td>
+                                            <td>{{ r[5] }}</td>
+                                        </tr>
+                                        {% endfor %}
+
+
+                                        <!-- {% for admin in admins %}
+                                        <tr>
+                                            <th scope="row"><a href="#">{{admin.id}}</a></th>
+                                            <td>{{admin.title}}</td>
+                                            <td><a href="#" class="text-primary">{{admin.category}}</a></td>
+                                            <td>{{admin.date}}</td>
+                                            <td>
+                                                <a href="/delete1/{{ admin.id }}" class="btn badge bg-danger"><i
+                                                        class="ri-delete-bin-4-line"></i></a>
+                                                <a href="/update1/{{ admin.id }}" class="btn badge bg-success"><i
+                                                        class="ri-edit-box-fill"></i></a>
+                                                <a href="/view1/{{ admin.id }}" class="btn badge bg-primary"><i
+                                                        class="ri-eye-line"></i></a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %} -->
+
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div><!-- End Recent Sales -->
+
+
+                </div>
+            </div><!-- End Left side columns -->
+
+            <!-- Right side columns -->
+            <!-- News & Updates Traffic -->
+            <!-- <div class="col-lg-4">
+                <div class="card">
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                            </li>
+
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">This Month</a></li>
+                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body pb-0">
+                        <h5 class="card-title">Most Views Blogs<span>| Today</span></h5>
+
+                        <div class="news">
+                            <div class="post-item clearfix">
+                                <img src="assets/img/news-1.jpg" alt="">
+                                <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
+                                <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="assets/img/news-2.jpg" alt="">
+                                <h4><a href="#">Quidem autem et impedit</a></h4>
+                                <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="assets/img/news-3.jpg" alt="">
+                                <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
+                                <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="assets/img/news-4.jpg" alt="">
+                                <h4><a href="#">Laborum corporis quo dara net para</a></h4>
+                                <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
+                            </div>
+
+                            <div class="post-item clearfix">
+                                <img src="assets/img/news-5.jpg" alt="">
+                                <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
+                                <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...
+                                </p>
+                            </div>
+
+                        </div>
+                        
+
+                    </div>
+                </div>
+                
+
+            </div> -->
+
+            <!-- End Right side columns -->
+
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+
+{% endblock %}

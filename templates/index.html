@@ -1,0 +1,1192 @@
+{% extends "main_layout.html" %}
+{% block content %}
+
+<!-- main-area -->
+<main class="fix">
+
+    <!-- banner-area -->
+    <section class="banner__area banner__bg" data-background="assets/img/banner/banner_bg.jpg">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-lg-6">
+                    <div class="banner__content">
+                        <span class="sub-title" data-aos="fade-up" data-aos-delay="200"></span>
+                        <h2 class="title" data-aos="fade-up" data-aos-delay="400">WELCOME TO QUERIERSAATHI</h2>
+                        <p data-aos="fade-up" data-aos-delay="600">when an unknown printer took a galley of type and
+                            company need scra make it better future to make attempt type specimen.</p>
+                        <!-- <a href="services.html" class="btn" data-aos="fade-up" data-aos-delay="800">Explore Our Services <img src="" alt="" class="injectable"></a> -->
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="banner__img">
+                        <img src="../static/assets/img/banner/banner_img01.png" alt="img" data-aos="fade-left"
+                            data-aos-delay="800">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner__shape-wrap">
+            <img src="assets/img/banner/banner_shape.png" alt="shape" class="rotateme">
+            <img src="../static/assets/img/banner/banner_img02.png" alt="img" class="wow bounceInDown "
+                data-wow-delay=".3s">
+        </div>
+    </section>
+    <!-- banner-area-end -->
+
+
+
+    <!-- request-area -->
+    <div class="request__area mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="request__wrap">
+                        <div class="request__nav">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="request-tab" data-bs-toggle="tab"
+                                        data-bs-target="#request-tab-pane" type="button" role="tab"
+                                        aria-controls="request-tab-pane" aria-selected="true"><i
+                                            class="flaticon-big-box"></i>Request a Quote</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="track-tab" data-bs-toggle="tab"
+                                        data-bs-target="#track-tab-pane" type="button" role="tab"
+                                        aria-controls="track-tab-pane" aria-selected="false"><i
+                                            class="flaticon-send"></i>Track & Trace</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="request__tab-wrap">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane show active" id="request-tab-pane" role="tabpanel"
+                                    aria-labelledby="request-tab" tabindex="0">
+                                    <form action="/" class="request__form" method="POST">
+                                        <span class="title">Personal Data</span>
+                                        <div class="row gutter-20">
+                                            <div class="col-lg-4">
+                                                <div class="form-grp">
+                                                    <input type="text" placeholder="Name*" name="bname">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-grp">
+                                                    <input type="email" placeholder="Mail*" name="bemail">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-grp">
+                                                    <input type="text" placeholder="Phone*" name="bphone"
+                                                        onblur="showRandomNumber()">
+                                                    <input type="hidden" placeholder="Track_no*" name="track_no"
+                                                        id="track_num">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="title">Shipment Data</span>
+                                        <div class="row gutter-20">
+
+                                            <div class="col-lg-6">
+                                                <div class="form-grp">
+                                                    <input type="text" name="origin" placeholder="Origin Pincode">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-grp">
+                                                    <input type="text" name="destination"
+                                                        placeholder="Destination Pincode">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-grp">
+                                                    <input type="text" name="origin_p" placeholder="Origin Place">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-grp">
+                                                    <input type="text" name="destination_p"
+                                                        placeholder="Destination Place">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-4">
+                                                <div class="form-grp select-grp">
+                                                    <label for="" class="label-control"> Select Packages Content</label>
+                                                    <select name="content" class="orderby">
+                                                        <option value="Incoterms">Select package</option>
+                                                        <option value="Books & Documents">Books & Documents</option>
+                                                        <option value="Clothes & Personal Items">Clothes & Personal Items</option>
+                                                        <option value="Consumables">Consumables</option>
+                                                        <option value="Electronic">Electronics</option>
+                                                        <option value="Household Items">Household Items</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-grp select-grp">
+                                                    <label for="" class="label-control"> Describe Your Packages</label>
+                                                    <select name="dpackage" class="orderby">
+                                                        <option value="Select packag">Select package</option>
+                                                        <option value="Document/Envelop">Document/Envelope</option>
+                                                        <option value="Pouch/Plastic">Pouch/Plastic</option>
+                                                        <option value="Personal Bag/Shoe Box">Personal Bag/Shoe Box</option>
+                                                        <option value="Carton/Box/Suitcase">Carton/Box/Suitcase</option>
+                                                        <option value="Other,Please Specify">Other,Please Specify</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-grp select-grp">
+                                                    <label for="packageSize" class="label-control"> Select Packages
+                                                        Size</label>
+                                                    <!-- <select id="packageSize" name="size" class="orderby">
+                                                        <option value="100">100</option>
+                                                        <option value="200">200</option>
+                                                        <option value="300">300</option>
+                                                    </select> -->
+                                                    <select id="packageSize" name="size">
+                                                        <option value="">--Select--</option>
+                                                        <option value="100">100</option>
+                                                        <option value="200">200</option>
+                                                        <option value="500">500</option>
+                                                        <option value="750">750</option>
+                                                        <option value="1500">1500</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="request__radio-wrap">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Fragile
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Express Delivery
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                                <label class="form-check-label" for="flexRadioDefault3">
+                                                    Insurance
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                                                <label class="form-check-label" for="flexRadioDefault4">
+                                                    Packaging
+                                                </label>
+                                            </div>
+                                        </div> -->
+                                        <button type="button" class="rounded" id="calculateButton" onclick="calculatePrice()">Calculate Price</button>
+                                        
+                                        <p id="demo"></p>
+                                        <input type="hidden" id="priceInput" name="price" value="">
+
+                                        <!-- <button type="button" class="btn-primary rounded mb-2"
+                                            onclick="calculatePrice()">Calculate</button>
+                                        <input type="text" placeholder="price*" name="price" id="demo"> -->
+                                        <input type="submit" class="btn" value="Request a Quote" name="submit"> 
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="track-tab-pane" role="tabpanel" aria-labelledby="track-tab"
+                                    tabindex="0">
+                                    <form action="/delivery_update{{ track_no }}" class="request__form">
+                                        
+                                        <span class="title">Tracking Number</span>
+                                        <div class="form-grp">
+                                            <textarea  name="track_no"
+                                                placeholder="You need to enter your tracking number" required></textarea>
+                                        </div>
+                                        <!-- <div class="request__radio-wrap">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                    id="flexRadioDefault5" checked>
+                                                <label class="form-check-label" for="flexRadioDefault5">
+                                                    Air Freight
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                    id="flexRadioDefault6">
+                                                <label class="form-check-label" for="flexRadioDefault6">
+                                                    Ocean Freight
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                    id="flexRadioDefault7">
+                                                <label class="form-check-label" for="flexRadioDefault7">
+                                                    Road Freight
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                    id="flexRadioDefault8">
+                                                <label class="form-check-label" for="flexRadioDefault8">
+                                                    Express Delivery
+                                                </label>
+                                            </div>
+                                        </div> -->
+                                        <button type="submit" class="btn" onclick="trackOrder()">Track & Trace</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- request-area-end -->
+
+    <!-- about-area -->
+    <!-- <section class="about__area pt-120 pb-120">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="about__img">
+                            <img src="assets/img/images/about_img01.png" alt="img">
+                            <img src="assets/img/images/about_img02.png" alt="img" data-aos="fade-right" data-aos-delay="200">
+                            <img src="assets/img/images/about_img03.png" alt="img" data-aos="fade-down" data-aos-delay="400">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about__content">
+                            <div class="section__title mb-15">
+                                <span class="sub-title">Reliable Logistic & Transport Solutions</span>
+                                <h2 class="title">Delivering the Full Range <br> Of logistics solutions</h2>
+                            </div>
+                            <p>Adipiscing elit. Aliquam vulputate, tortor nec com ultri viverra Suspen disse faucibus sed dolor eget Sed id urna. Hiftler Group irepresentatilve in loisticsti for operator providings.</p>
+                            <div class="about__content-bottom">
+                                <div class="about__list-box-wrap">
+                                    <div class="about__list-box">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-check"></i>Quality Control System</li>
+                                            <li><i class="flaticon-check"></i>100% Satisfaction Guarantee</li>
+                                            <li><i class="flaticon-check"></i>Professional and Qualified</li>
+                                            <li><i class="flaticon-check"></i>Safe, Reliable And Express</li>
+                                        </ul>
+                                    </div>
+                                    <a href="services.html" class="btn">Get in Touch <img src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                                </div>
+                                <div class="about__review-wrap">
+                                    <div class="about__review-box">
+                                        <div class="about__review-author">
+                                            <img src="assets/img/images/author01.png" alt="img">
+                                            <img src="assets/img/images/author02.png" alt="img">
+                                            <img src="assets/img/images/author03.png" alt="img">
+                                            <img src="assets/img/images/author04.png" alt="img">
+                                        </div>
+                                        <div class="review">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>Clients 4.7 (1,567 Reviews)</span>
+                                    </div>
+                                    <div class="experience__box">
+                                        <h4 class="title">25</h4>
+                                        <span>Years Of <br> Experience</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shape">
+                                <img src="assets/img/images/about_shape.png" alt="shape" data-aos="fade-left" data-aos-delay="1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    <!-- about-area-end -->
+
+    <!-- brand-area -->
+    <!-- <div class="brand__area">
+            <div class="container">
+                <div class="swiper brand-active fix">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="brand__item">
+                                <img src="assets/img/brand/brand_img01.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand__item">
+                                <img src="assets/img/brand/brand_img02.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand__item">
+                                <img src="assets/img/brand/brand_img03.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand__item">
+                                <img src="assets/img/brand/brand_img04.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand__item">
+                                <img src="assets/img/brand/brand_img05.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand__item">
+                                <img src="assets/img/brand/brand_img06.png" alt="img">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand__item">
+                                <img src="assets/img/brand/brand_img04.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    <!-- brand-area-end -->
+
+    <!-- services-area -->
+    <!-- <section class="services__area fix">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="section__title mb-40">
+                        <span class="sub-title">OUR BEST SERVICES</span>
+                        <h2 class="title">Covering All Logistics <br> Solutions Fro you</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="view-all-btn text-end mb-40">
+                        <a href="services.html" class="btn btn-two">All Services <img
+                                src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row gutter-24 justify-content-center">
+                <div class="col-xl-3 col-lg-8 col-sm-6">
+                    <div class="services__item">
+                        <div class="services__thumb-wrap">
+                            <div class="services__thumb">
+                                <img src="assets/img/services/services_img01.jpg" alt="img">
+                                <a href="services-details.html" class="btn btn-two border-btn">Read More <img
+                                        src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            </div>
+                            <div class="services__icon">
+                                <i class="flaticon-ship"></i>
+                            </div>
+                        </div>
+                        <div class="services__content">
+                            <h3 class="title"><a href="services-details.html">Ocean Freight</a></h3>
+                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries
+                                destination.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-8 col-sm-6">
+                    <div class="services__item">
+                        <div class="services__thumb-wrap">
+                            <div class="services__thumb">
+                                <img src="assets/img/services/services_img02.jpg" alt="img">
+                                <a href="services-details.html" class="btn btn-two border-btn">Read More <img
+                                        src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            </div>
+                            <div class="services__icon">
+                                <i class="flaticon-truck"></i>
+                            </div>
+                        </div>
+                        <div class="services__content">
+                            <h3 class="title"><a href="services-details.html">Road Freight</a></h3>
+                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries
+                                destination.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-8 col-sm-6">
+                    <div class="services__item">
+                        <div class="services__thumb-wrap">
+                            <div class="services__thumb">
+                                <img src="assets/img/services/services_img03.jpg" alt="img">
+                                <a href="services-details.html" class="btn btn-two border-btn">Read More <img
+                                        src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            </div>
+                            <div class="services__icon">
+                                <i class="flaticon-air-freight"></i>
+                            </div>
+                        </div>
+                        <div class="services__content">
+                            <h3 class="title"><a href="services-details.html">Air Freight</a></h3>
+                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries
+                                destination.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-8 col-sm-6">
+                    <div class="services__item">
+                        <div class="services__thumb-wrap">
+                            <div class="services__thumb">
+                                <img src="assets/img/services/services_img04.jpg" alt="img">
+                                <a href="services-details.html" class="btn btn-two border-btn">Read More <img
+                                        src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            </div>
+                            <div class="services__icon">
+                                <i class="flaticon-train"></i>
+                            </div>
+                        </div>
+                        <div class="services__content">
+                            <h3 class="title"><a href="services-details.html">Train Freight</a></h3>
+                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries
+                                destination.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="services__shape-wrap">
+            <img src="assets/img/services/services_shape01.png" alt="shape" class="rotateme">
+            <img src="assets/img/services/services_shape02.png" alt="shape" data-aos="fade-right" data-aos-delay="400">
+        </div>
+    </section> -->
+    <!-- services-area-end -->
+
+    <!-- choose-area -->
+    <section class="choose__area choose__bg mt-5" data-background="assets/img/bg/vector_bg.svg">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-5 col-md-10">
+                    <div class="choose__img wow img-custom-anim-left animated" data-wow-duration="1.5s"
+                        data-wow-delay="0.2s">
+                        <img src="assets/img/images/choose_img01.jpg" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="choose__content">
+                        <div class="section__title white-title mb-25">
+                            <span class="sub-title">Why Choose Us</span>
+                            <h2 class="title">We are logistics improving <br> our skills to fulfill delivery <br> of any
+                                level!</h2>
+                        </div>
+                        <div class="choose__content-bottom">
+                            <div class="left-side">
+                                <p>Adipiscing eliAl iquam vulputate tortor area neclue com university viverra Suspen
+                                    disse arfauci bussed dolor eget Sed drar urna hiftler Group irepres entatilve
+                                    loisticsti for operato vulputate tortor area neclue instagram area.</p>
+                                <a href="services-details.html" class="btn white-btn">To know more About Us <img
+                                        src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            </div>
+                            <div class="counter__wrap">
+                                <div class="counter__item">
+                                    <div class="counter__icon">
+                                        <i class="flaticon-package"></i>
+                                    </div>
+                                    <div class="counter__content">
+                                        <h2 class="count"><span class="counter-number">9.5</span>M</h2>
+                                        <p>Delivered Goods</p>
+                                    </div>
+                                </div>
+                                <div class="counter__item">
+                                    <div class="counter__icon">
+                                        <i class="flaticon-planet-earth"></i>
+                                    </div>
+                                    <div class="counter__content">
+                                        <h2 class="count"><span class="counter-number">15.9</span>M</h2>
+                                        <p>Clients Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- choose-area-end -->
+
+    <!-- achieved-area -->
+    <section class="achieved__area fix">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-10 order-0 order-lg-2">
+                    <div class="achieved__img">
+                        <img src="assets/img/images/achieved_img.png" alt="img" class="wow bounceInDown"
+                            data-wow-delay=".3s">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="achieved__content">
+                        <div class="section__title mb-20">
+                            <span class="sub-title">What We Achieved!</span>
+                            <h2 class="title">We are logistics improving our skills to fulfill delivery of any level!
+                            </h2>
+                        </div>
+                        <p>Adipiscing elit. Aliquam vulputate, tortor nec com ultri viverra Suspen disse faucibus sed
+                            dolor eget Sed id urna. hiftler Group irepresentatilve in loisticsti</p>
+                        <div class="progress__wrap">
+                            <div class="progress__item">
+                                <div class="progress__item-top">
+                                    <h3 class="progress__title">Successful Delivery</h3>
+                                    <div class="progress-value"><span class="counter-number">82</span>%</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 82%;"></div>
+                                </div>
+                            </div>
+                            <div class="progress__item">
+                                <div class="progress__item-top">
+                                    <h3 class="progress__title">Happy Customers</h3>
+                                    <div class="progress-value"><span class="counter-number">90</span>%</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="achieved__shape">
+            <img src="assets/img/images/achieved_shape.png" alt="shape">
+        </div>
+    </section>
+    <!-- achieved-area-end -->
+
+    <!-- marquee-area -->
+    <!-- <section class="marquee__area fix">
+        <div class="container-fluid p-0">
+            <div class="slider__marquee clearfix marquee-wrap">
+                <div class="marquee_mode marquee__group">
+                    <h6 class="marquee__item">
+                        <a href="services.html"><img src="assets/img/icon/star.svg" alt="" class="injectable"> Air
+                            Freight</a>
+                    </h6>
+                    <h6 class="marquee__item">
+                        <a href="services.html"><img src="assets/img/icon/star.svg" alt="" class="injectable">
+                            Logistics</a>
+                    </h6>
+                    <h6 class="marquee__item">
+                        <a href="services.html"><img src="assets/img/icon/star.svg" alt="" class="injectable"> Delivery
+                            Service</a>
+                    </h6>
+                    <h6 class="marquee__item">
+                        <a href="services.html"><img src="assets/img/icon/star.svg" alt="" class="injectable">
+                            Tracking</a>
+                    </h6>
+                    <h6 class="marquee__item">
+                        <a href="services.html"><img src="assets/img/icon/star.svg" alt="" class="injectable">
+                            Warehouse</a>
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- marquee-area-end -->
+
+    <!-- project-area -->
+    <!-- <section class="project__area project__bg" data-background="assets/img/bg/vector_bg02.svg">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-lg-6 col-md-8">
+                    <div class="section__title mb-40">
+                        <span class="sub-title">Featured Projects</span>
+                        <h2 class="title">We Are Proud to Excellence Deliver Success</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-4">
+                    <div class="view-all-btn text-end mb-60">
+                        <a href="services-details.html" class="btn">See All Projects <img
+                                src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0 fix">
+            <div class="project__item-wrap">
+                <div class="swiper project-active">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="project__item">
+                                <div class="project__thumb">
+                                    <a href="project-details.html"><img src="assets/img/project/project_img01.jpg"
+                                            alt="img"></a>
+                                </div>
+                                <div class="project__content">
+                                    <div class="content">
+                                        <h2 class="title"><a href="project-details.html">Modern Warehouse</a></h2>
+                                        <span>Logistics</span>
+                                    </div>
+                                    <div class="right-arrow">
+                                        <a href="project-details.html"><img src="assets/img/icon/right_arrow.svg" alt=""
+                                                class="injectable"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project__item">
+                                <div class="project__thumb">
+                                    <a href="project-details.html"><img src="assets/img/project/project_img02.jpg"
+                                            alt="img"></a>
+                                </div>
+                                <div class="project__content">
+                                    <div class="content">
+                                        <h2 class="title"><a href="project-details.html">Modern Warehouse</a></h2>
+                                        <span>Logistics</span>
+                                    </div>
+                                    <div class="right-arrow">
+                                        <a href="project-details.html"><img src="assets/img/icon/right_arrow.svg" alt=""
+                                                class="injectable"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project__item">
+                                <div class="project__thumb">
+                                    <a href="project-details.html"><img src="assets/img/project/project_img03.jpg"
+                                            alt="img"></a>
+                                </div>
+                                <div class="project__content">
+                                    <div class="content">
+                                        <h2 class="title"><a href="project-details.html">Smart Warehouse</a></h2>
+                                        <span>Logistics</span>
+                                    </div>
+                                    <div class="right-arrow">
+                                        <a href="project-details.html"><img src="assets/img/icon/right_arrow.svg" alt=""
+                                                class="injectable"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project__nav"></div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- project-area-end -->
+
+    <!-- video-area -->
+    <!-- <section class="video__area">
+        <div class="video__bg" data-background="assets/img/bg/video_bg.jpg"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-6 order-0 order-lg-2">
+                    <div class="video__play-btn">
+                        <a href="http://www.youtube.com/watch?v=1iIZeIy7TqM" class="play-btn popup-video"><i
+                                class="fas fa-play"></i></a>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="video__content">
+                        <div class="section__title white-title">
+                            <span class="sub-title">Customer Teams & An Agile Services</span>
+                            <h2 class="title">We provide the best and fastest courier services nowadays</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- video-area-end -->
+
+
+
+    <!-- testimonial-area -->
+    <!-- <section class="testimonial__area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <div class="testimonial__wrap fix">
+                        <div class="testimonial__icon">
+                            <img src="assets/img/icon/quote.svg" alt="" class="injectable">
+                        </div>
+                        <div class="testimonial-slider-dot">
+                            <div class="swiper testimonial__nav">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <button><img src="assets/img/images/author01.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="assets/img/images/author02.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="assets/img/images/author03.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="assets/img/images/author04.png" alt="img"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper testimonial-active">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Ralph Edwards</h2>
+                                            <span>CEO, logistex Agency</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content">
+                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita
+                                                florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor
+                                                sit amet, consectetur.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Jone Cooper</h2>
+                                            <span>CEO, logistex Agency</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content">
+                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita
+                                                florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor
+                                                sit amet, consectetur.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Eleanor Pena</h2>
+                                            <span>CEO, logistex Agency</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content">
+                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita
+                                                florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor
+                                                sit amet, consectetur.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Floyd Miles</h2>
+                                            <span>CEO, logistex Agency</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content">
+                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita
+                                                florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor
+                                                sit amet, consectetur.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial__nav-wrap">
+                                <button class="testimonial-button-prev">
+                                    <i class="flaticon-left-arrow"></i>
+                                </button>
+                                <button class="testimonial-button-next">
+                                    <i class="flaticon-right-arrow"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial__shape">
+            <img src="assets/img/images/testimonial_shape.png" alt="img">
+        </div>
+    </section> -->
+    <!-- testimonial-area-end -->
+
+    <!-- work-area -->
+    <!-- <section class="work__area work__bg" data-background="assets/img/bg/vector_bg.svg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section__title text-center white-title mb-50">
+                        <span class="sub-title">HOW IT WORKS</span>
+                        <h2 class="title">How We Operate Unveiling <br> Our Logistics Process</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="work__item-wrap">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="work__item">
+                            <div class="work__icon">
+                                <i class="flaticon-package"></i>
+                                <span class="number">01</span>
+                            </div>
+                            <div class="work__content">
+                                <h4 class="title">Request A Quote</h4>
+                                <p>There are many variation sear passages orem</p>
+                            </div>
+                            <div class="work__shape">
+                                <img src="assets/img/images/work_shape01.svg" alt="" class="injectable">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="work__item">
+                            <div class="work__icon">
+                                <i class="flaticon-support"></i>
+                                <span class="number">02</span>
+                            </div>
+                            <div class="work__content">
+                                <h4 class="title">Call Back From Office</h4>
+                                <p>There are many variation sear passages orem</p>
+                            </div>
+                            <div class="work__shape">
+                                <img src="assets/img/images/work_shape02.svg" alt="" class="injectable">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="work__item">
+                            <div class="work__icon">
+                                <i class="flaticon-global-distribution"></i>
+                                <span class="number">03</span>
+                            </div>
+                            <div class="work__content">
+                                <h4 class="title">Delivery Available</h4>
+                                <p>There are many variation sear passages orem</p>
+                            </div>
+                            <div class="work__shape">
+                                <img src="assets/img/images/work_shape01.svg" alt="" class="injectable">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="work__item">
+                            <div class="work__icon">
+                                <i class="flaticon-parcel"></i>
+                                <span class="number">04</span>
+                            </div>
+                            <div class="work__content">
+                                <h4 class="title">Deliver Shipping</h4>
+                                <p>There are many variation sear passages orem</p>
+                            </div>
+                            <div class="work__shape">
+                                <img src="assets/img/images/work_shape01.svg" alt="" class="injectable">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- work-area-end -->
+
+    <!-- blog-post-area -->
+    <!-- <section class="blog__post-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="section__title mb-40">
+                        <span class="sub-title">LATEST NEWS</span>
+                        <h2 class="title">Our Recent Articles</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-4">
+                    <div class="view-all-btn text-end mb-40">
+                        <a href="services.html" class="btn btn-two">See All News <img
+                                src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center gutter-24">
+                <div class="col-lg-8 col-md-6">
+                    <div class="blog__post-item shine__animate-item">
+                        <div class="blog__post-thumb">
+                            <a href="blog-details.html" class="shine__animate-link"><img
+                                    src="assets/img/blog/blog_img01.jpg" alt="img"></a>
+                        </div>
+                        <div class="blog__post-content">
+                            <div class="blog__meta">
+                                <ul class="list-wrap">
+                                    <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
+                                </ul>
+                            </div>
+                            <h3 class="title"><a href="blog-details.html">Importers achieve savings through the First
+                                    Sale rule!</a></h3>
+                            <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries
+                                destination.</p>
+                            <a href="services.html" class="btn btn-two">Read More <img
+                                    src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="blog__post-item shine__animate-item">
+                        <div class="blog__post-thumb">
+                            <a href="blog-details.html" class="shine__animate-link"><img
+                                    src="assets/img/blog/blog_img02.jpg" alt="img"></a>
+                        </div>
+                        <div class="blog__post-content">
+                            <div class="blog__meta">
+                                <ul class="list-wrap">
+                                    <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
+                                </ul>
+                            </div>
+                            <h3 class="title"><a href="blog-details.html">The Future of Logistics Emb racing
+                                    Technology</a></h3>
+                            <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries
+                                destination.</p>
+                            <a href="services.html" class="btn btn-two">Read More <img
+                                    src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="blog__post-item shine__animate-item">
+                        <div class="blog__post-thumb">
+                            <a href="blog-details.html" class="shine__animate-link"><img
+                                    src="assets/img/blog/blog_img03.jpg" alt="img"></a>
+                        </div>
+                        <div class="blog__post-content">
+                            <div class="blog__meta">
+                                <ul class="list-wrap">
+                                    <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
+                                </ul>
+                            </div>
+                            <h3 class="title"><a href="blog-details.html">Green Logistics Solutions for a Greener
+                                    Future</a></h3>
+                            <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries
+                                destination.</p>
+                            <a href="services.html" class="btn btn-two">Read More <img
+                                    src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- blog-post-area-end -->
+
+    <!-- contact-map -->
+    <!-- <div class="contact-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48409.69813174607!2d-74.05163325136718!3d40.68264649999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1684309529719!5m2!1sen!2sbd"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div> -->
+    <!-- contact-map-end -->
+
+</main>
+<!-- main-area-end -->
+
+
+
+<!-- main-area -->
+<main class="fix mt-0">
+
+
+
+    <!-- faq-area -->
+    <section class="faq__area section-py-140">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9">
+                            <div class="section__title text-center mb-50">
+                                <h2 class="title">FAQ</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq__wrap-two">
+                        <div class="accordion accordin-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Can i specify a delivery date when ordering?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Gorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Quam pellentesque nec
+                                            nam nulla facilisi etiam aliquam.Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit empor incididunt ut labore et dolore magna uam pellentesque
+                                            nec nam nulla facilisi etiam aliquam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        How can I safely use files?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Gorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Quam pellentesque nec
+                                            nam nulla facilisi etiam aliquam.Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit empor incididunt ut labore et dolore magna uam pellentesque
+                                            nec nam nulla facilisi etiam aliquam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        Where do I find my Office product key?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Gorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Quam pellentesque nec
+                                            nam nulla facilisi etiam aliquam.Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit empor incididunt ut labore et dolore magna uam pellentesque
+                                            nec nam nulla facilisi etiam aliquam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        What payment methods are supported?
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Gorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Quam pellentesque nec
+                                            nam nulla facilisi etiam aliquam.Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit empor incididunt ut labore et dolore magna uam pellentesque
+                                            nec nam nulla facilisi etiam aliquam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseFive">
+                                        How can I Track My Shipments?
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Gorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Quam pellentesque nec
+                                            nam nulla facilisi etiam aliquam.Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit empor incididunt ut labore et dolore magna uam pellentesque
+                                            nec nam nulla facilisi etiam aliquam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        What options for logistics plans are available?
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Gorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Quam pellentesque nec
+                                            nam nulla facilisi etiam aliquam.Lorem ipsum dolor sit amet, consectetur
+                                            adipiscing elit empor incididunt ut labore et dolore magna uam pellentesque
+                                            nec nam nulla facilisi etiam aliquam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq-area-end -->
+
+</main>
+<!-- main-area-end -->
+<script>
+    function calculatePrice() {
+        // Get selected package size
+        const packageSize = parseInt(document.getElementById("packageSize").value);
+
+        let price;
+
+        if (packageSize >= 100 && packageSize <= 500) {
+            price = "100";
+        } else if (packageSize > 500 && packageSize <= 1000) {
+            price = "200";
+        } else if (packageSize > 1000) {
+            price = "350";
+        } else {
+            price = "Please select a valid package size.";
+        }
+
+        // Display price in the 'demo' paragraph
+        document.getElementById("demo").innerHTML = price;
+
+        // Hide the button
+        document.getElementById("calculateButton").style.display = "none";
+
+        // Set the value of the <input> field
+        document.getElementById("priceInput").value = price;
+    }
+    function trackOrder() {
+        const bid = document.getElementById("bid").value;  // Get the bid entered by user
+        if (bid) {
+            window.location.href = `/tracker/${bid}`;  // Redirect dynamically to the tracker page
+        } else {
+            alert("Please enter a valid tracking number.");
+        }
+    }
+
+</script>
+
+
+
+{% endblock %}
